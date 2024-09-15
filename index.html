@@ -20,19 +20,54 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="max-w-[98%] md:max-w-[90%] mx-auto">
     <header>
-      <nav>
-        <a href="">LiZa</a>
-        <ul>
-          <li><a href=""><i class="fa-solid fa-house"></i></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><button>Sign In</button></li>
+      <!-- Navbar section -->
+      <nav class="flex justify-between items-center py-8">
+        <a class="text-4xl font-bold" href="">LiZa</a>
+        <ul class="flex items-center">
+          <li
+            data-tip="Home"
+            class="me-4 tooltip border-2 bg-gray-100 p-1 rounded-full w-10 h-10 flex items-center justify-center"
+          >
+            <a href=""><i class="fa-solid fa-house"></i></a>
+          </li>
+          <li
+            data-tip="Edit"
+            class="me-4 tooltip border-2 bg-gray-100 p-1 rounded-full w-10 h-10 flex items-center justify-center"
+          >
+            <a href=""><i class="fa-solid fa-pen"></i></a>
+          </li>
+          <li
+            data-tip="User"
+            class="me-4 tooltip border-2 bg-gray-100 p-1 rounded-full w-10 h-10 flex items-center justify-center"
+          >
+            <a href=""><i class="fa-solid fa-user"></i></a>
+          </li>
+          <li
+            data-tip="Notice"
+            class="me-4 tooltip border-2 bg-gray-100 p-1 rounded-full w-10 h-10 flex items-center justify-center"
+          >
+            <a href=""><i class="fa-solid fa-flag"></i></a>
+          </li>
+          <li class="">
+            <button
+              class="bg-[#797DFC] py-2 px-10 rounded-full font-bold text-white"
+            >
+              Sign In
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
+
+    <!-- main section -->
+    <main>
+      <!-- hero sectoion -->
+      <section class="hero bg-[url('./images/bgbanner.png')] h-[550px] bg-[#12132D] rounded-3xl">
+       <h2 class="">mahadi</h2>
+      </section>
+    </main>
 
     <!-- js link -->
     <script src="script.js"></script>
