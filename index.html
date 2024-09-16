@@ -77,14 +77,17 @@
             </p>
             <div class="relative">
               <input
+                id="search-box"
                 class="input rounded-full w-72"
                 type="text"
                 placeholder="search here anything"
               />
-              <input
-                class="absolute top-2 left-48 cursor-pointer bg-blue-600 font-semibold text-white px-4 py-1 rounded-full"
-                type="submit"
-              />
+              <button
+                onclick="loadPostBySearch()"
+                class="absolute top-2 left-48 cursor-pointer hover:bg-blue-700 bg-blue-600 font-semibold text-white px-4 py-1 rounded-full"
+              >
+                Search
+              </button>
             </div>
           </div>
 
@@ -132,16 +135,16 @@
         <!-- functional work -->
         <div class="flex flex-col md:flex-row gap-6 mb-4">
           <div class="md:w-[60%]">
-            <div id="content-div" class="space-y-4">
-             
-            </div>
+            <div id="content-div" class="space-y-4"></div>
           </div>
-          <div class=" md:w-[40%] p-6 rounded-3xl">
+          <div class="md:w-[40%] p-6 rounded-3xl">
             <div class="flex justify-between">
               <h3 class="text-2xl font-bold">Title</h3>
-              <p class=" text-gray-500">Mark as read (<span id="read-count">0</span>)</p>
+              <p class="text-gray-500">
+                Mark as read (<span id="read-count">0</span>)
+              </p>
             </div>
-          <div id="title-container" class="mt-6"></div>
+            <div id="title-container" class="mt-6"></div>
           </div>
         </div>
       </section>
