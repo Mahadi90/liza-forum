@@ -10,13 +10,16 @@ const loadPost = async () => {
 const displayPost = (posts) => {
   const postContainer = document.getElementById("content-div");
   posts.forEach((post) => {
-    console.log(post);
+    // console.log(post);
     const postcard = document.createElement("div");
     postcard.classList =
       "flex border-2 border-gray-500 rounded-3xl bg-slate-200 py-8 px-12";
     postcard.innerHTML = `
-        <img class="w-20 h-20 me-6 rounded-lg" src=${post.image} alt="img" />
-                <div id="content-details" class="space-y-4">
+              <div class="relative">
+              <img class="w-20 h-20 me-6 rounded-lg" src=${post.image} alt="img" />
+              <div class="absolute -top-2 right-4 w-6 h-6 ${post.isActive ==  true ? 'bg-green-500' : 'bg-red-500'} rounded-full border-2 border-slate-200"></div></div>
+             
+                 <div id="content-details" class="space-y-4">
                   <div class="flex flex-col md:flex-row text-gray-800">
                     <p>#${post.category}</p>
                     <p class="md:ms-4">Authore : ${post.author?.name}</p>
@@ -31,11 +34,29 @@ const displayPost = (posts) => {
                     <a class="grow ms-4" href=""
                       ><i class="fa-regular fa-clock"></i
                     > ${post.posted_time}</a>
-                    <a href=""><i class="fa-regular fa-envelope bg-green-500 text-white p-2 rounded-full"></i></a>
+                    <button onclick="handleRead('${post.title}', '${post.view_count}')"><i class="fa-regular fa-envelope bg-green-500 text-white p-2 rounded-full"></i></button>
                   </div>
                 </div>
         `;
     postContainer.appendChild(postcard);
   });
 };
+
+const handleRead =(title, view) => {
+//  read count
+const readCountBox = document.getElementById('read-count')
+const readBoxText = readCountBox.innerText;
+const readBoxTextInt = parseInt(readBoxText)
+readCountBox.innerText = readBoxTextInt + 1;
+
+  // display title and view count
+  const readContainer = document.getElementById('title-container')
+   const readPost = document.createElement('div');
+   readPost.classList = 'my-2 flex justify-between items-center p-4 rounded-xl bg-slate-200'
+   readPost.innerHTML = `
+    <h2 class="text-xl">${title}</h2>
+    <p class="text-gray-500"><i class="fa-regular fa-eye"></i> ${view}</p>
+   `
+   readContainer.appendChild(readPost)
+}
 loadPost();
